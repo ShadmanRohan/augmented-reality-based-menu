@@ -1,0 +1,27 @@
+body {
+  background: #eee;
+  padding: 20px;
+}
+
+section {
+  max-width: 50em;
+  background: white;
+  padding: 2em;
+  margin: 1em auto;
+}
+.divider {
+  background-color: black;
+  height: 5px; }
+
+a{
+  color: black;
+}
+a:hover{
+  color: black;
+}
+table, th, td {
+  border: 2px solid black;
+}
+td {
+  padding: 15px;
+}

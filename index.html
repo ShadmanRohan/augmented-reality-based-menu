@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>SRS</title>
+ <style>
+  @media print {
+    footer {page-break-after: always;}
+  }
+  </style>
+
+
+
+
+</head>
+<body>
+  <section>
+    <div class="divider"style="margin-top:40px"></div>
+
+    <div style="text-align:right;margin-bottom:300px">
+      <h1 style="margin-top:20px">Software Requirements Specifications</h1>
+      <h4>for</h4>
+      <h2>Augmented Reality Based Restaurant Menu</h2>
+      <h4 style="margin-top:100px">Prepared By</h4>
+      <h3 style="margin-top:40px">Shadman Rohan <br> A.K.M. Jubair Ahmed <br> Mojammel Hossain</h3>
+      <h4 style="margin-top:30px">Organization:</h4>
+      <h5 style="margin-top:20px">Date Created:</h5>
+    </div>
+
+    <button onclick="myFunction()">Print this page</button>
+    <script>
+    function myFunction() {
+      window.print();
+    }
+    </script>
+
+    <footer display: none>
+      <p>page: @generate</p>
+    </footer>
+
+
+
+    <div>
+      <h2>Table of Contents</h2>
+      <h5 style="margin-top:30px">Table of Contents</h5>
+      <h5><a href="#revision">Revision History</a></h5>
+
+      <h5><a href="#introduction">1. Introduction</a> </h5>
+      <p>&nbsp &nbsp &nbsp<a href="#purpose"><font size="3">1.1 Purpose</a>
+      <br>&nbsp &nbsp &nbsp<a href="#docconventions">1.2 Document Conventions</a>
+      <br>&nbsp &nbsp &nbsp<a href="#audiencereadsuggestion">1.3 Intended Audience and Reading Suggestions</a>
+      <br>&nbsp &nbsp &nbsp<a href="#productscope">1.4 Product Scope</a>
+      <br>&nbsp &nbsp &nbsp<a href="#reference">1.5 References</a></font></p>
+
+      <h5><a href="#description">2. Overall Description</a></h5>
+      <p>&nbsp &nbsp &nbsp<a href="#productperspective"><font size="3">2.1 Product Perspective</a>
+      <br>&nbsp &nbsp &nbsp<a href="#productfunction">2.2 Product Functions</a>
+      <br>&nbsp &nbsp &nbsp<a href="#userclasscharacteristics">2.3 User Classes and Characteristics</a>
+      <br>&nbsp &nbsp &nbsp<a href="#operatingenvironment">2.4 Operating Environment</a>
+      <br>&nbsp &nbsp &nbsp<a href="#designimplementationconstraint">2.5 Design and Implementation Constraints</a>
+      <br>&nbsp &nbsp &nbsp<a href="#userdocumentation">2.6 User Documentation</a>
+      <br>&nbsp &nbsp &nbsp<a href="#assumptiondependencies">2.7 Assumptions and Dependencies</a></font></p>
+
+      <h5><a href="#external_interface_requirement">3. External Interface Requirements</a></h5>
+      <p>&nbsp &nbsp &nbsp<a href="#userinterfaces"><font size="3">3.1 User Interfaces</a>
+      <br>&nbsp &nbsp &nbsp<a href="#hardware_interface">3.2 Hardware Interfaces</a>
+      <br>&nbsp &nbsp &nbsp<a href="#software_interface">3.3 Software Interfaces</a>
+      <br>&nbsp &nbsp &nbsp<a href="#comunications">3.4 Communications Interfaces</a></font></p>
+
+      <h5><a href="#system_features">4. System Features</a></h5>
+      <p>&nbsp &nbsp &nbsp<a href="#system_feature1"><font size="3">4.1 System Feature 1</a>
+      <br>&nbsp &nbsp &nbsp<a href="#system_feature2">4.2 System Feature 2 (and so on)</a></font></p>
+
+      <h5><a href="#nonfunctional_requirements">5. Other Nonfunctional Requirements</a></h5>
+      <p>&nbsp &nbsp &nbsp<a href="#performance_requirements"><font size="3">5.1 Performance Requirements</a>
+      <br>&nbsp &nbsp &nbsp<a href="#safety_requirements">5.2 Safety Requirements</a>
+      <br>&nbsp &nbsp &nbsp<a href="#security_requirements">5.3 Security Requirements</a>
+      <br>&nbsp &nbsp &nbsp<a href="#software_quality_attributes">5.4 Software Quality Attributes</a>
+      <br>&nbsp &nbsp &nbsp<a href="#business_rules">5.5 Business Rules</a></font></p>
+
+      <h5><a href="#otherrequirements">6. Other Requirements</a></h5>
+      <h5><a href="#appendixA">Appendix A: Glossary</a></h5>
+      <h5><a href="#appendixB">Appendix B: Analysis Models</a></h5>
+      <h5><a href="#appendixC">Appendix C: To Be Determined List</a></h5>
+    </div>
+
+    <div style="margin-top:40px">
+      <h2 id="revision">Revision History</h2>
+      <table style="width:100%">
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Reason for Changes</th>
+          <th>Version</th>
+        </tr>
+        <tr>
+          <th></th> <th></th> <th></th> <th></th>
+        </tr>
+        <tr>
+          <td></td> <td></td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td></td> <td></td> <td></td> <td></td>
+        </tr>
+      </table>
+    </div>
+
+    <footer display: none>
+      <p>Posted by: Hege Refsnes</p>
+    </footer>
+
+
+
+      <h1 id="introduction"style="margin-top:80px">1. Introduction</h1>
+
+    <div>
+      <h3 id="purpose" style="margin-top:20px">1.1 Purpose</h3>
+      <p><i>This document aims to a complete description for the augmented reality based restaurant menu project and
+        give detailed information about the features, interfaces of the resulting application, and what the application is capable of.
+        This software requirements specification document addresses the ones who are going to develop this system. It will explain the scenario of the
+         project and necessary steps in order to accomplish the task, such as an overall description of the project, the definition of the problem that
+          project presents a solution, and definitions and abbreviations that are relevant to the project.</i></p>
+      <h3 id="docconventions">1.2 Document Conventions</h3>
+      <p><i>Standard typographical conventions will be reserved during the project work. The fonts and the color will be adjusted in such a way so that the
+        clients can easily get the idea of it and become comfortable using it.</i></p>
+      <h3 id="audiencereadsuggestion">1.3 Intended Audience and Reading Suggestions</h3>
+      <p><i>This document is intended for the design team who will involve the developers with the
+           requirements of the project. This documentation will be containing each and every detail of the project i.e. frameworks, platforms etc.</i></p>
+      <h3 id="productscope">1.4 Product Scope</h3>
+      <p><i>The project which is going to be presented in this document is called augmented reality based restaurant menu. This application is planned to be used
+        by any person who is willing to order food in restaurants. It is designed to run on a hand-held mobile device. It will allow customers to see the 3D pictures
+        of food on their table before they actually order it, and make it easier for them to choose..</i></p>
+      <h3 id="reference">1.5 References</h3>
+      <p><i>http://www.cs.fsu.edu/~baker/swe1/restricted/templates/SRSTemplate.html
+            http://www.jaysonjc.com/programming/how-to-write-a-software-requirements-specification-srs-document.html</i></p>
+      </div>
+
+
+    <div>
+      <h1 id="description"style="margin-top:40px">2. Overall Description</h2>
+      <h3 id="productperspective"style="margin-top:20px">2.1 Product Perspective</h3>
+      <p><i>The perspective of the product is to let the customers see the 3D model of the food on their table. They will be able to see how the food actually
+        looks i.e. the size and color. This application has three types of users, so there will be three interfaces for users and service providers and administrators. </i></p>
+      <h3 id="productfunction">2.2 Product Fuctions</h3>
+      <p><i>Some major functionalities of our application contains the representation of
+             3D model of foods using AR. Customer can see color, shape and size of the food, and can then order.
+             There will be 3rd party can login system using google so that there will be no need of registration for using this application.
+             Besides keeping of Customer’s information for future use and keeping Sales Records.
+</i></p>
+      <h3 id="userclasscharacteristics">2.3 User Classes and Characteristics</h3>
+      <p><i>There will be only one user class in this product which is the customer.</i></p>
+      <h3 id="operatingenvironment">2.4 Operating Environment</h3>
+      <p><i>Operating environment of this product will be consisting of :
+          ● Relational Database
+          ● Operating System : Android, Windows
+          ● Database: SQL Database
+          ● Hardware Platform: Cell Phone, PC.</i></p>
+      <h3 id="designimplementationconstraint">2.5 Design and Implementation Constraints</h3>
+      <p><i>Constraints include:
+            ● Class diagram and its implementation
+            ● Automatic SQL commands calling with the help of API
+            ● Implementing the database using the centralized database management system.
+</i></p>
+      <h3 id="userdocumentation">2.6 User Documentation</h3>
+      <p><i>Not applicable</i></p>
+      <h3 id="assumptiondependencies">2.7 Assumptions and Dependencies</h3>
+      <p><i>In order to maintain the accuracy, following assumptions are made:
+          ● Products will be uniquely defined by geometric shape and color couple.</i></p>
+    </div>
+
+
+    <div>
+      <h1 id="external_interface_requirement" style="margin-top:40px">3. External Interface Requirements</h1>
+      <h3 style="margin-top:20px"id="userinterfaces">3.1 User Interfaces</h3>
+      <p><i>Describe the logical characteristics of each interface between the software product and the
+        users. This may include sample screen images, any GUI standards or product family style
+        guides that are to be followed, screen layout constraints, standard buttons and functions (e.g.,
+        help) that will appear on every screen, keyboard shortcuts, error message display standards,
+        and so on. Define the software components for which a user interface is needed. Details of the
+        user interface design should be documented in a separate user interface specification.</i></p>
+      <h3 id="hardware_interface">3.2 Hardware Interfaces</h3>
+      <p><i>Describe the logical and physical characteristics of each interface between the software
+        product and the hardware components of the system. This may include the supported device
+        types, the nature of the data and control interactions between the software and the hardware,
+        and communication protocols to be used.</i></p>
+      <h3 id="software_interface">3.3 Software interfaces</h3>
+      <p><i>Describe the connections between this product and other specific software components (name
+        and version), including databases, operating systems, tools, libraries, and integrated
+        commercial components. Identify the data items or messages coming into the system and going
+        out and describe the purpose of each. Describe the services needed and the nature of
+        communications. Refer to documents that describe detailed application programming interface
+        protocols. Identify data that will be shared across software components. If the data sharing
+        mechanism must be implemented in a specific way (for example, use of a global data area in a
+        multitasking operating system), specify this as an implementation constraint</i></p>
+      <h3 id="comunications">3.4 Communications</h3>
+      <p><i>Describe the requirements associated with any communications functions required by this
+        product, including e-mail, web browser, network server communications protocols, electronic
+        forms, and so on. Define any pertinent message formatting. Identify any communication
+        standards that will be used, such as FTP or HTTP. Specify any communication security or
+        encryption issues, data transfer rates, and synchronization mechanisms.</i></p>
+    </div>
+
+
+    <div>
+      <h1 id="system_features"style="margin-top:40px">4. System Features</h1>
+      <p><i>This template illustrates organizing the functional requirements for the product by system
+        features, the major services provided by the product. You may prefer to organize this section by
+        use case, mode of operation, user class, object class, functional hierarchy, or combinations of
+        these, whatever makes the most logical sense for your product.</i></p>
+      <h3  id="system_feature1"style="margin-top:20px">4.1 System Feature 1</h3>
+      <p>  &nbsp  &nbsp    4.1.1 Description and Priority
+        Provide a short description of the feature and indicate whether it is of High, Medium, or
+        Low priority. You could also include specific priority component ratings, such as
+        benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a
+        high of 9).</p>
+      <p>  &nbsp  &nbsp   4.1.2 Stimulus/Response Sequences
+        List the sequences of user actions and system responses that stimulate the behavior
+        defined for this feature. These will correspond to the dialog elements associated
+        with use cases</p>
+      <p>  &nbsp  &nbsp   4.1.3 Functional Requirements
+        Itemize the detailed functional requirements associated with this feature. These are the
+        software capabilities that must be present in order for the user to carry out the
+        services provided by the feature, or to execute the use case. Include how the
+        product should respond to anticipated error conditions or invalid inputs.
+        Requirements should be concise, complete, unambiguous, verifiable, and
+        necessary. Use “TBD” as a placeholder to indicate when necessary information is
+        not yet available.Each requirement should be uniquely identified with a sequence number or a
+        meaningful tag of some kind.
+        REQ-1:
+        REQ-2:</p>
+      <h3 id="system_feature2">4.2 System Feature 2 (and so on)</h3>
+    </div>
+
+
+    <div>
+      <h1  id="nonfunctional_requirements"style="margin-top:40px">5. Other Nonfunctional Requirements</h1>
+      <h3 style="margin-top:20px"id="performance_requirements">5.1 Performance Requirements</h3>
+      <p><i>If there are performance requirements for the product under various circumstances, state them
+        here and explain their rationale, to help the developers understand the intent and make suitable
+        design choices. Specify the timing relationships for real time systems. Make such requirements
+        as specific as possible. You may need to state performance requirements for individual
+        functional requirements or features.</i></p>
+      <h3 id="safety_requirements">5.2 Safety Requirements</h3>
+      <p><i>Specify those requirements that are concerned with possible loss, damage, or harm that could
+        result from the use of the product. Define any safeguards or actions that must be taken, as well
+        as actions that must be prevented. Refer to any external policies or regulations that state safety
+        issues that affect the product’s design or use. Define any safety certifications that must be
+        satisfied</i></p>
+      <h3 id="security_requirements">5.3 Security Requirements</h3>
+      <p><i>Specify any requirements regarding security or privacy issues surrounding use of the product
+        or protection of the data used or created by the product. Define any user identity authentication
+        requirements. Refer to any external policies or regulations containing security issues that affect
+        the product. Define any security or privacy certifications that must be satisfied.</i></p>
+      <h3 id="software_quality_attributes">5.4 Software Quality Attributes</h3>
+      <p><i>Specify any additional quality characteristics for the product that will be important to either the
+        customers or the developers. Some to consider are: adaptability, availability, correctness,
+        flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability,
+        and usability. Write these to be specific, quantitative, and verifiable when possible. At the least,
+        clarify the relative preferences for various attributes, such as ease of use over ease of
+        learning.</i></p>
+      <h3 id="business_rules">5.5 Business Rules</h3>
+      <p><i>List any operating principles about the product, such as which individuals or roles can perform
+        which functions under specific circumstances. These are not functional requirements in
+        themselves, but they may imply certain functional requirements to enforce the rules.</i></p>
+    </div>
+
+
+    <div>
+      <h1 id="otherrequirements"style="margin-top:40px">6. Other Requirements</h1>
+      <p><i>Define any other requirements not covered elsewhere in the SRS. This might include database
+        requirements, internationalization requirements, legal requirements, reuse objectives for the
+        project, and so on. Add any new sections that are pertinent to the project</i></p>
+    </div>
+
+
+    <div>
+      <h2 id="appendixA"style="margin-top:40px">Appendix A: Glossary</h2>
+      <h2 id="appendixB"style="margin-top:40px">Appendix B: Analysis Models</h2>
+      <h2 id="appendixC"style="margin-top:40px">Appendix C: To Be Determined List</h2>
+    </div>
+    <div style="margin-bottom:40px"></div>
+  </section>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
