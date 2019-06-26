@@ -23,3 +23,11 @@ table, th, td {
 
 td {
   padding: 15px; }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height:70%
+  }
