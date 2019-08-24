@@ -11,25 +11,7 @@ use Kreait\Firebase\Database;
 class fireBController extends Controller
 {
 
-    public function inputItem()
-    {
-        $serviceAccount = ServiceAccount::fromJsonFile(__DIR__ . '/proj-c57ab-firebase-adminsdk-4sinx-19b56cf2ad.json');
-        $firebase = (new Factory)
-            ->withServiceAccount($serviceAccount)
-            ->withDatabaseUri('https://proj-c57ab.firebaseio.com/')
-            ->create();
-
-        $database = $firebase->getDatabase();
-
-        $refs = $database->getReference('Item');
-        $items = $refs->pushvalue();
-
-        foreach ($items as $item) {
-            $all_item[] = $item;
-        }
-        return view('stock', compact('all_item') );
-    }
-
+    //Showing Customer Reservation Page
 
     public function showReserve()
     {
@@ -53,6 +35,8 @@ class fireBController extends Controller
     }
 
 
+    //Showing Stock Page
+
     public function showItem()
     {
         $serviceAccount = ServiceAccount::fromJsonFile(__DIR__ . '/cse327-ec9ea-firebase-adminsdk-hefrs-4152589af7.json');
@@ -73,6 +57,7 @@ class fireBController extends Controller
     }
 
 
+    //Showing Current Orders Page
 
     public function showOrders()
     {

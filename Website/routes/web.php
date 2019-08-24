@@ -35,15 +35,10 @@ Route::get('/login', function () {
 });
 
 
-
-
 Route::get('/adminpanel', function () {
     return view('adminpanel');
 });
 
-Route::get('/sales-history', function () {
-    return view('sales-history');
-});
 
 
 
