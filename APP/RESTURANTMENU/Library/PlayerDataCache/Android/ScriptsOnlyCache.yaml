@@ -22,7 +22,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Text
-    - UnityEngine.UI.VerticalLayoutGroup
     Vuforia.UnityExtensions.dll:
     - Vuforia.ImageTargetBehaviour
     - Vuforia.TurnOffBehaviour
@@ -54,35 +53,37 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9410}
+      Script: {instanceID: 9392}
     - Class: 114
       Script: {instanceID: 9412}
     - Class: 114
-      Script: {instanceID: 9418}
+      Script: {instanceID: 9414}
     - Class: 114
-      Script: {instanceID: 9424}
+      Script: {instanceID: 9420}
     - Class: 114
-      Script: {instanceID: 9432}
+      Script: {instanceID: 9426}
     - Class: 114
-      Script: {instanceID: 9454}
+      Script: {instanceID: 9434}
     - Class: 114
-      Script: {instanceID: 9468}
+      Script: {instanceID: 9456}
     - Class: 114
       Script: {instanceID: 9470}
     - Class: 114
-      Script: {instanceID: 9546}
+      Script: {instanceID: 9472}
     - Class: 114
-      Script: {instanceID: 9558}
+      Script: {instanceID: 9548}
     - Class: 114
-      Script: {instanceID: 9562}
+      Script: {instanceID: 9560}
     - Class: 114
-      Script: {instanceID: 9566}
+      Script: {instanceID: 9564}
     - Class: 114
-      Script: {instanceID: 9604}
+      Script: {instanceID: 9568}
     - Class: 114
-      Script: {instanceID: 9948}
+      Script: {instanceID: 9606}
     - Class: 114
-      Script: {instanceID: 10146}
+      Script: {instanceID: 9950}
+    - Class: 114
+      Script: {instanceID: 10148}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -131,47 +132,39 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9390}
-    - Class: 114
-      Script: {instanceID: 9410}
+      Script: {instanceID: 9392}
     - Class: 114
       Script: {instanceID: 9412}
     - Class: 114
       Script: {instanceID: 9414}
     - Class: 114
-      Script: {instanceID: 9418}
+      Script: {instanceID: 9420}
     - Class: 114
-      Script: {instanceID: 9424}
-    - Class: 114
-      Script: {instanceID: 9432}
+      Script: {instanceID: 9426}
     - Class: 114
       Script: {instanceID: 9434}
     - Class: 114
-      Script: {instanceID: 9440}
-    - Class: 114
-      Script: {instanceID: 9460}
-    - Class: 114
-      Script: {instanceID: 9468}
+      Script: {instanceID: 9436}
     - Class: 114
       Script: {instanceID: 9470}
     - Class: 114
-      Script: {instanceID: 9480}
+      Script: {instanceID: 9472}
     - Class: 114
-      Script: {instanceID: 9774}
+      Script: {instanceID: 9776}
     - Class: 114
-      Script: {instanceID: 9916}
+      Script: {instanceID: 9918}
     - Class: 114
-      Script: {instanceID: 9938}
+      Script: {instanceID: 9940}
     - Class: 114
-      Script: {instanceID: 9946}
+      Script: {instanceID: 9948}
     - Class: 114
-      Script: {instanceID: 10146}
+      Script: {instanceID: 10148}
     - Class: 114
-      Script: {instanceID: 10320}
+      Script: {instanceID: 10322}
     - Class: 114
-      Script: {instanceID: 10416}
+      Script: {instanceID: 10418}
     - Class: 114
-      Script: {instanceID: 10578}
+      Script: {instanceID: 10580}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -212,35 +205,35 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9390}
-    - Class: 114
-      Script: {instanceID: 9410}
+      Script: {instanceID: 9392}
     - Class: 114
       Script: {instanceID: 9412}
     - Class: 114
       Script: {instanceID: 9414}
     - Class: 114
-      Script: {instanceID: 9418}
+      Script: {instanceID: 9416}
     - Class: 114
-      Script: {instanceID: 9424}
+      Script: {instanceID: 9420}
     - Class: 114
       Script: {instanceID: 9426}
     - Class: 114
-      Script: {instanceID: 9432}
+      Script: {instanceID: 9428}
     - Class: 114
       Script: {instanceID: 9434}
     - Class: 114
-      Script: {instanceID: 9440}
+      Script: {instanceID: 9436}
     - Class: 114
-      Script: {instanceID: 9454}
+      Script: {instanceID: 9442}
     - Class: 114
-      Script: {instanceID: 9460}
+      Script: {instanceID: 9456}
     - Class: 114
-      Script: {instanceID: 9468}
+      Script: {instanceID: 9462}
     - Class: 114
       Script: {instanceID: 9470}
     - Class: 114
-      Script: {instanceID: 10146}
+      Script: {instanceID: 9472}
+    - Class: 114
+      Script: {instanceID: 10148}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -318,7 +311,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 27ceccb05992cc4ef575874207f5ebb8
+      Hash: 5b40a11f8d7fec9ebb221e9c6a0ef00d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AddOrders
@@ -1947,4 +1940,4 @@ ScriptsOnlyBuild:
   - Assets/DataFile/Scenes/MainScene.unity
   - Assets/DataFile/Scenes/MenuListScene.unity
   - Assets/DataFile/Scenes/OrderListScene.unity
-  playerPath: C:/Users/mojammel/Desktop/UnityProject/resmenu.apk
+  playerPath: C:/Users/mojammel/Desktop/resmenu.apk

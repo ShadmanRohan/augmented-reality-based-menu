@@ -3,70 +3,203 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using Proyecto26;
-
+using System;
 public class AddOrders : MonoBehaviour
 {
     public InputField quatity;
+    public InputField tableNo;
     static List<string> foodName = new List<string>();
-    static List<string> foodQuatity = new List<string>();
     static List<string> foodPrice = new List<string>();
-    FoodPrice newfood;
+    static List<string> foodQuantity = new List<string>();
+    static List<string> itemid = new List<string>();
+    static List<Item> items = new List<Item>();
+    static List<Order_Items> order_items = new List<Order_Items>();
     public GameObject textPrefab;
+    public GameObject textPrefab2;
     public GameObject buttonPrefab;
     string buttonText;
     int toast = 0;
+    int scene = 0;
     
     public void get_text(Button btn)
     {
         buttonText = btn.name;
         toast++;
+        if (items.Count == 0)
+        {
+            get_object_from_database(buttonText);
+        }
+        else
+        {
+            int flag = 0;
+            for(int i = 0; i < itemid.Count; i++)
+            {
+                if(itemid[i] == buttonText) { flag = 1; break; }
+            }
+            if (flag == 0)
+            {
+                get_object_from_database(buttonText);
+            }
+        }
         Debug.Log("Name: "+buttonText);
     }
     public void addOrder()
     {
-        if(toast == 0)
+        if (toast == 0)
         {
-            SSTools.ShowMessage("Please Select an food", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            buttonText = itemid[0];
         }
-        else {
-            foodName.Add(buttonText);
-            foodQuatity.Add(quatity.text);
-            get_object_from_database(buttonText);
+        Debug.Log(items.Count);
+        for(int i=0; i<items.Count; i++)
+        {
+            Debug.Log(items[i].fname);
+            if(itemid[i] == buttonText)
+            {
+                try
+                {
+                    int quan = Convert.ToInt32(quatity.text);
+                    if (quan < 1)
+                    {
+                        SSTools.ShowMessage("Quantity Should be Valid", SSTools.Position.top, SSTools.Time.oneSecond);
+                        return;
+                    }
+                    if (items[i].stock >= quan)
+                    {
+                        Order_Items newor = new Order_Items();
+                        newor.fname = items[i].fname;
+                        int tprice = Convert.ToInt32(items[i].price) * quan;
+                        newor.price = tprice.ToString();
+                        newor.quantity = quan;
+                        foodName.Add(items[i].fname);
+                        foodPrice.Add(items[i].price);
+                        foodQuantity.Add(quatity.text);
+                        order_items.Add(newor);
+                        Item item = items[i];
+                        item.stock = item.stock - quan;
+                        items[i] = item;
+                        SSTools.ShowMessage("Item Added", SSTools.Position.top, SSTools.Time.twoSecond);
+                        break;
+                    }
+                    else
+                    {
+                        SSTools.ShowMessage("Out of Stock", SSTools.Position.top, SSTools.Time.oneSecond);
+                    }
+                } catch(Exception e)
+                {
+                    SSTools.ShowMessage("Invalid Input", SSTools.Position.top, SSTools.Time.oneSecond);
+                }
+            }
+        }
+    }
+    public void merge_double_object()
+    {
+        List<Order_Items> orders = new List<Order_Items>();
+        orders.Add(order_items[0]);
+        for (int i = 1; i < order_items.Count; i++)
+        {
+            int flag = 0;
+            {
+                for (int j = 0; j < orders.Count; j++)
+                {
+                    if (order_items[i].fname == orders[j].fname)
+                    {
+                        Order_Items newor = new Order_Items();
+                        newor = orders[j];
+                        int tprice = Convert.ToInt32(newor.price);
+                        tprice = tprice + Convert.ToInt32(order_items[i].price);
+                        newor.quantity = newor.quantity + order_items[i].quantity;
+                        newor.price = tprice.ToString();
+                        orders[j] = newor;
+                        flag++;
+                        break;
+                    }
+                }
+                if (flag == 0)
+                {
+                    orders.Add(order_items[i]);
+                }
+            }
+        }
+        foodName.Clear();
+        foodPrice.Clear();
+        foodQuantity.Clear();
+        order_items.Clear();
+        order_items = orders;
+        for(int i = 0; i < orders.Count; i++)
+        {
+            foodName.Add(orders[i].fname);
+            foodQuantity.Add(orders[i].quantity.ToString());
+            int unitprice = Convert.ToInt32(orders[i].price);
+            unitprice = unitprice / orders[i].quantity;
+            foodPrice.Add(unitprice.ToString());
         }
     }
     public void add_in_database()
     {
-        if(quatity.text == "")
+        if(order_items.Count == 0)
         {
-            SSTools.ShowMessage("Please Enter Table No", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            SSTools.ShowMessage("Place Some Orders First", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            return;
+        }
+        Order_Items order = new Order_Items();
+        int tablen;
+        string time = DateTime.Now.ToString("h:mm:ss tt");
+        try
+        {
+            tablen = Convert.ToInt32(tableNo.text);
+        }
+        catch (Exception e)
+        {
+            SSTools.ShowMessage("Must be a Valid Table Number", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            return;
+        }
+        if (tablen < 1 || tablen > 5)
+        {
+            SSTools.ShowMessage("Invalid Table Number", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
         else
         {
-            for (int i = 0; i < foodName.Count; i++)
+            for (int i = 0; i < order_items.Count; i++)
             {
-                FoodDetails newfood = new FoodDetails();
-                newfood.food = foodName[i];
-                newfood.foodQuatity = foodQuatity[i];
-                RestClient.Post("https://cse327-ec9ea.firebaseio.com/" + quatity.text + ".json", newfood);
+                order = order_items[i];
+                order.time = time;
+                order.tableno = tablen;
+                order_items[i] = order;
+                RestClient.Post("https://cse327-ec9ea.firebaseio.com/" + "Order_Items" + ".json", order_items[i]);
             }
+            for (int i = 0; i < items.Count; i++)
+            {
+                RestClient.Put("https://cse327-ec9ea.firebaseio.com/" + "Item/" + items[i].itemid + ".json", items[i]);
+                Debug.Log(items[i].fname + " " + i);
+            }
+            SSTools.ShowMessage("Order Confirmed", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
     }
     public void get_object_from_database(string newf)
     {
-        newfood = new FoodPrice();
-        RestClient.Get<FoodPrice>("https://cse327-ec9ea.firebaseio.com/" + newf + ".json").Then(response => 
+        RestClient.Get<Item>("https://cse327-ec9ea.firebaseio.com/Item/" + newf + ".json").Then(response =>
         {
-            newfood = response;
-            foodPrice.Add(response.fprice);
-            
+            items.Add(response);
+            itemid.Add(newf);
         });
     }
     public void Start()
     {
         Scene newscene = SceneManager.GetActiveScene();
         string scenename = newscene.name;
+        if(scenename == "MainScene" )
+        {
+            get_object_from_database("1");
+        }
         if (scenename == "OrderListScene")
         {
+            try
+            {
+                merge_double_object();
+            }catch(Exception e)
+            {
+                SSTools.ShowMessage("Please Place Some Orders First", SSTools.Position.bottom, SSTools.Time.threeSecond);
+            }
             int sum = 0;
             for (int i = 0; i < foodName.Count; i++)
             {
@@ -90,7 +223,7 @@ public class AddOrders : MonoBehaviour
                         if (c2 == 0)
                         {
                             c2++;
-                            show_object(foodQuatity[i]);
+                            show_object(foodQuantity[i]);
                         }
                         else
                         {
@@ -104,25 +237,45 @@ public class AddOrders : MonoBehaviour
                         }
                     }
                 }
-                sum = sum + System.Convert.ToInt32(foodPrice[i]) * System.Convert.ToInt32(foodQuatity[i]);
+                sum = sum + Convert.ToInt32(foodPrice[i]) * Convert.ToInt32(foodQuantity[i]);
             }
-            show_object("Total");
-            show_object("=");
-            show_object(sum.ToString());
-            
+            show_total("");
+            show_total("Total Bill");
+            show_total(sum.ToString());
+            show_total("");
         }
     }
     public void OnButtonClick(string bname)
     {
-        int i = System.Convert.ToInt32(bname);
+        int i = Convert.ToInt32(bname);
+        for (int j = 0; j < items.Count; j++)
+        {
+            if (items[j].fname == foodName[i])
+            {
+                Item item = items[j];
+                item.stock = item.stock + Convert.ToInt32(foodQuantity[i]);
+                items[j] = item;
+                break;
+            }
+        }
         foodName.RemoveAt(i);
         foodPrice.RemoveAt(i);
-        foodQuatity.RemoveAt(i);
+        foodQuantity.RemoveAt(i);
+        order_items.RemoveAt(i);
         SceneManager.LoadScene("OrderListScene");
     }
     public void show_object(string s)
     {
         GameObject totalPrice = (GameObject)Instantiate(textPrefab);
+        var panel2 = GameObject.Find("Panel");
+        totalPrice.transform.position = panel2.transform.position;
+        totalPrice.GetComponent<RectTransform>().SetParent(panel2.transform);
+        totalPrice.GetComponentsInChildren<Text>()[0].text = s;
+        totalPrice.gameObject.transform.localScale = new Vector3(1, 1, 1);
+    }
+    public void show_total(string s)
+    {
+        GameObject totalPrice = (GameObject)Instantiate(textPrefab2);
         var panel2 = GameObject.Find("Panel");
         totalPrice.transform.position = panel2.transform.position;
         totalPrice.GetComponent<RectTransform>().SetParent(panel2.transform);

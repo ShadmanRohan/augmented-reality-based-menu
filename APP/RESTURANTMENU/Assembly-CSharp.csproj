@@ -132,11 +132,11 @@
     <None Include="Assets\LeanTouch\Examples\Fonts\OFL.txt" />
     <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
     <None Include="Assets\Vuforia\Shaders\CameraDiffuse.shader" />
+    <None Include="Assets\StreamingAssets\Vuforia\ARONEDATABASE.xml" />
     <None Include="Assets\Vuforia\Shaders\VertexLitWithZ.shader" />
     <None Include="Assets\Vuforia\Shaders\VuforiaVB_YUVNV12_YUVNV21.cginc" />
     <None Include="Assets\Vuforia\Shaders\VideoBackground.shader" />
     <None Include="Assets\Vuforia\Shaders\OutlineOpaque.shader" />
-    <None Include="Assets\StreamingAssets\Vuforia\ARONEDATABASE.xml" />
     <None Include="Assets\LeanTouch\Examples\Shaders\BackgroundSkybox.shader" />
     <None Include="Assets\Vuforia\Shaders\VuforiaVB_YUV420P_YUVYV12.cginc" />
     <None Include="Assets\LeanTouch\Examples\Shaders\Smooth.shader" />

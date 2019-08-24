@@ -1,11 +1,16 @@
-﻿public struct FoodDetails
-{
-    public string food;
-    public string foodQuatity;
-}
-
-public struct FoodPrice
+﻿public struct Item
 {
     public string fname;
-    public string fprice;
+    public string price;
+    public int stock;
+    public int itemid;
+}
+
+public struct Order_Items
+{
+    public string fname;
+    public string price;
+    public int quantity;
+    public int tableno;
+    public string time;
 }
