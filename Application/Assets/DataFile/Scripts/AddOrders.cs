@@ -141,7 +141,6 @@ public class AddOrders : MonoBehaviour
             SSTools.ShowMessage("Place Some Orders First", SSTools.Position.bottom, SSTools.Time.twoSecond);
             return;
         }
-        Order_Items order = new Order_Items();
         int tablen;
         string time = DateTime.Now.ToString("h:mm:ss tt");
         try
@@ -159,19 +158,8 @@ public class AddOrders : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < order_items.Count; i++)
-            {
-                order = order_items[i];
-                order.time = time;
-                order.tableno = tablen;
-                order_items[i] = order;
-                RestClient.Post("https://cse327-ec9ea.firebaseio.com/" + "Order_Items" + ".json", order_items[i]);
-            }
-            for (int i = 0; i < items.Count; i++)
-            {
-                RestClient.Put("https://cse327-ec9ea.firebaseio.com/" + "Item/" + items[i].itemid + ".json", items[i]);
-                Debug.Log(items[i].fname + " " + i);
-            }
+            Adaptor adaptor = new RESTConnect();
+            adaptor.send(order_items,items,tablen,time);
             SSTools.ShowMessage("Order Confirmed", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
     }
