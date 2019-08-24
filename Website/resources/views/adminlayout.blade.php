@@ -109,9 +109,6 @@
                         <a href="/item" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Stock</a>
                     </li>
                     <li>
-                        <a href="/sales-history" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Sales History</a>
-                    </li>
-                    <li>
                         <a href="/reserve" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Customer Reservation</a>
                     </li>
 

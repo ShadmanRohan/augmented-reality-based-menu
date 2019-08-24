@@ -31,7 +31,7 @@
                             </thead>
 
                             <tbody>
-
+                            <!-- Showing in table format -->
                             @foreach($all_order as $order)
 
                                 <tr>

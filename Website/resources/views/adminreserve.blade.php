@@ -32,7 +32,7 @@
                             <thead>
 
                             <tbody>
-
+                            <!-- Showing in table format -->
                             @foreach ($all_reserve as $reserve)
 
                                 <tr>
