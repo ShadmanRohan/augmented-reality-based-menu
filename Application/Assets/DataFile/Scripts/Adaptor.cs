@@ -12,6 +12,30 @@ abstract class Adaptor
 
 class RESTConnect : Adaptor
 {
+    private static RESTConnect _instance;
+    private RESTConnect()
+    {
+        Debug.Log("Instance created");
+    }
+
+    public void Log(string message)
+    {
+        Debug.Log(message);
+    }
+
+    public static RESTConnect Instance
+    {
+        get
+        {
+            if (null == _instance)
+            {
+                Debug.Log("first");
+                _instance = new RESTConnect();
+            }
+
+            return _instance;
+        }
+    }
     public override void send(List<Order_Items> order_Items,List<Item> items,int tableNo,string time)
     {
         Order_Items order = new Order_Items();

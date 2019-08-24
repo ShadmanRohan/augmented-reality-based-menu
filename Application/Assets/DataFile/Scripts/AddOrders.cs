@@ -27,7 +27,7 @@ public class AddOrders : MonoBehaviour
         toast++;
         if (items.Count == 0)
         {
-            get_object_from_database(buttonText);
+            get_items_from_database(buttonText);
         }
         else
         {
@@ -38,7 +38,7 @@ public class AddOrders : MonoBehaviour
             }
             if (flag == 0)
             {
-                get_object_from_database(buttonText);
+                get_items_from_database(buttonText);
             }
         }
         Debug.Log("Name: "+buttonText);
@@ -158,12 +158,12 @@ public class AddOrders : MonoBehaviour
         }
         else
         {
-            Adaptor adaptor = new RESTConnect();
+            Adaptor adaptor=RESTConnect.Instance;
             adaptor.send(order_items,items,tablen,time);
             SSTools.ShowMessage("Order Confirmed", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
     }
-    public void get_object_from_database(string newf)
+    public void get_items_from_database(string newf)
     {
         RestClient.Get<Item>("https://cse327-ec9ea.firebaseio.com/Item/" + newf + ".json").Then(response =>
         {
@@ -177,7 +177,7 @@ public class AddOrders : MonoBehaviour
         string scenename = newscene.name;
         if(scenename == "MainScene" )
         {
-            get_object_from_database("1");
+            get_items_from_database("1");
         }
         if (scenename == "OrderListScene")
         {
@@ -201,17 +201,17 @@ public class AddOrders : MonoBehaviour
                         if (c1 == 0)
                         {
                             c1++;
-                            show_object(foodName[i]);
+                            show_order_details(foodName[i]);
                         }
                         else
-                            show_object(foodPrice[i]);
+                            show_order_details(foodPrice[i]);
                     }
                     else
                     {
                         if (c2 == 0)
                         {
                             c2++;
-                            show_object(foodQuantity[i]);
+                            show_order_details(foodQuantity[i]);
                         }
                         else
                         {
@@ -220,20 +220,20 @@ public class AddOrders : MonoBehaviour
                             string bname = i.ToString();
                             button.GetComponentInChildren<Text>().text = bname;
                             button.GetComponentInChildren<Text>().enabled = false;
-                            button.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(bname));
+                            button.GetComponent<Button>().onClick.AddListener(() => remove_item(bname));
                             button.gameObject.transform.localScale = new Vector3(1, 1, 1);
                         }
                     }
                 }
                 sum = sum + Convert.ToInt32(foodPrice[i]) * Convert.ToInt32(foodQuantity[i]);
             }
-            show_total("");
-            show_total("Total Bill");
-            show_total(sum.ToString());
-            show_total("");
+            show_total_price("");
+            show_total_price("Total Bill");
+            show_total_price(sum.ToString());
+            show_total_price("");
         }
     }
-    public void OnButtonClick(string bname)
+    public void remove_item(string bname)
     {
         int i = Convert.ToInt32(bname);
         for (int j = 0; j < items.Count; j++)
@@ -252,7 +252,7 @@ public class AddOrders : MonoBehaviour
         order_items.RemoveAt(i);
         SceneManager.LoadScene("OrderListScene");
     }
-    public void show_object(string s)
+    public void show_order_details(string s)
     {
         GameObject totalPrice = (GameObject)Instantiate(textPrefab);
         var panel2 = GameObject.Find("Panel");
@@ -261,7 +261,7 @@ public class AddOrders : MonoBehaviour
         totalPrice.GetComponentsInChildren<Text>()[0].text = s;
         totalPrice.gameObject.transform.localScale = new Vector3(1, 1, 1);
     }
-    public void show_total(string s)
+    public void show_total_price(string s)
     {
         GameObject totalPrice = (GameObject)Instantiate(textPrefab2);
         var panel2 = GameObject.Find("Panel");
