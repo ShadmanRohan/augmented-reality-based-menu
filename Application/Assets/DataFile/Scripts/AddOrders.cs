@@ -91,6 +91,8 @@ public class AddOrders : MonoBehaviour
             }
         }
     }
+
+    //Merge together similar food orders and add the quantities
     public void merge_double_object()
     {
         List<Order_Items> orders = new List<Order_Items>();
@@ -134,6 +136,7 @@ public class AddOrders : MonoBehaviour
             foodPrice.Add(unitprice.ToString());
         }
     }
+    //Send Data to Database
     public void add_in_database()
     {
         if(order_items.Count == 0)
@@ -158,8 +161,8 @@ public class AddOrders : MonoBehaviour
         }
         else
         {
-            Adaptor adaptor=RESTConnect.Instance;
-            adaptor.send(order_items,items,tablen,time);
+            Adapter adapter=RESTConnect.Instance;
+            adapter.send(order_items,items,tablen,time);
             SSTools.ShowMessage("Order Confirmed", SSTools.Position.bottom, SSTools.Time.twoSecond);
         }
     }
@@ -171,6 +174,7 @@ public class AddOrders : MonoBehaviour
             itemid.Add(newf);
         });
     }
+    //Start Program
     public void Start()
     {
         Scene newscene = SceneManager.GetActiveScene();
@@ -233,6 +237,7 @@ public class AddOrders : MonoBehaviour
             show_total_price("");
         }
     }
+    //Remove an Item from the Order
     public void remove_item(string bname)
     {
         int i = Convert.ToInt32(bname);
@@ -252,6 +257,7 @@ public class AddOrders : MonoBehaviour
         order_items.RemoveAt(i);
         SceneManager.LoadScene("OrderListScene");
     }
+    //Show all the items ordered and quantities
     public void show_order_details(string s)
     {
         GameObject totalPrice = (GameObject)Instantiate(textPrefab);
@@ -261,6 +267,7 @@ public class AddOrders : MonoBehaviour
         totalPrice.GetComponentsInChildren<Text>()[0].text = s;
         totalPrice.gameObject.transform.localScale = new Vector3(1, 1, 1);
     }
+    //Show total cost
     public void show_total_price(string s)
     {
         GameObject totalPrice = (GameObject)Instantiate(textPrefab2);

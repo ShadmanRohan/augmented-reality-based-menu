@@ -5,12 +5,13 @@ using System.Collections.Generic;
 using Proyecto26;
 using System;
 //DECLARE CLASS/INTERFACE STRUCTURE THAT HANDLES SENDING DATA TO THE SERVER
-abstract class Adaptor
+//Adapter Patter and Singleton Pattern
+abstract class Adapter
 {
     public abstract void send(List<Order_Items> order_Items,List<Item> items,int tableNo,string time);
 }
 
-class RESTConnect : Adaptor
+class RESTConnect : Adapter
 {
     private static RESTConnect _instance;
     private RESTConnect()
