@@ -1,7 +1,7 @@
 # AR Menu
 
 ## Augmented Reality Based Restaurant Menu
-![picture](ar-menu2.jpg)
+![picture](ar-menu.png)
 #
 AR Menu uses augmented reality technology to further enhance the dining experience. It showcases a restaurant's menu as realistic 3D food models before it comes to your plate- so you know exactly what you had ordered. This android experiment replaces old, out-dated paper menus to an interactive and cool way to dine.
 #
@@ -21,9 +21,6 @@ AR Menu uses augmented reality technology to further enhance the dining experien
 ### Hosted in
 * Firebase
 
-### License
-
-[MIT License](https://github.com/asadmansr/ARMenu/blob/master/LICENSE.md)
 
 
 ### Developed by
