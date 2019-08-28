@@ -65,8 +65,13 @@
     <Compile Include="Assets\DataFile\Scripts\Adaptor.cs" />
     <Compile Include="Assets\DataFile\Scripts\AddOrders.cs" />
     <Compile Include="Assets\DataFile\Scripts\ChangeScenes.cs" />
-    <Compile Include="Assets\DataFile\Scripts\FoodClass.cs" />
+    <Compile Include="Assets\DataFile\Scripts\GetAdaptor.cs" />
+    <Compile Include="Assets\DataFile\Scripts\GetText.cs" />
+    <Compile Include="Assets\DataFile\Scripts\Item.cs" />
+    <Compile Include="Assets\DataFile\Scripts\OrderItems.cs" />
     <Compile Include="Assets\DataFile\Scripts\ScrollableList.cs" />
+    <Compile Include="Assets\DataFile\Scripts\ShowOrderList.cs" />
+    <Compile Include="Assets\DataFile\Scripts\Testing.cs" />
     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanDestroy.cs" />
     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanDragLine.cs" />
     <Compile Include="Assets\LeanTouch\Examples\Scripts\LeanDragTrail.cs" />

@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &194278412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5628734960847430587, guid: 111f4e37b39d6c64c9c7be116cb7c4a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5628734959568007785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &195784436
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,6 +705,7 @@ GameObject:
   - component: {fileID: 771009616}
   - component: {fileID: 771009615}
   - component: {fileID: 771009617}
+  - component: {fileID: 771009618}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -718,14 +725,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36ad8d1618f61b46b3d6ea7fb311ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quatity: {fileID: 0}
-  tableNo: {fileID: 2071361276}
-  textPrefab: {fileID: 5628734960847430587, guid: 111f4e37b39d6c64c9c7be116cb7c4a1,
-    type: 3}
+  textPrefab: {fileID: 194278412}
   textPrefab2: {fileID: 7461761020415527209, guid: da38cf2842dd63b43b7ddb2a262dcd8c,
     type: 3}
   buttonPrefab: {fileID: 4962245617071898429, guid: cbb439fda95628e4e8169020696b0e42,
     type: 3}
+  sum: 0
+  quatity: {fileID: 0}
+  tableNo: {fileID: 2071361276}
 --- !u!4 &771009616
 Transform:
   m_ObjectHideFlags: 0
@@ -752,6 +759,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f94eeb655ff7604e864ab7062e6d084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &771009618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771009614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b30994b2550a0438263b0ff8c03388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 194278412}
+  textPrefab2: {fileID: 7461761020415527209, guid: da38cf2842dd63b43b7ddb2a262dcd8c,
+    type: 3}
+  buttonPrefab: {fileID: 4962245617071898429, guid: cbb439fda95628e4e8169020696b0e42,
+    type: 3}
+  sum: 0
 --- !u!1 &1013756816
 GameObject:
   m_ObjectHideFlags: 0
